@@ -19,6 +19,7 @@
 		03F1382D21BEC30500C62486 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F1382B21BEC30500C62486 /* Main.storyboard */; };
 		03F1382F21BEC30600C62486 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F1382E21BEC30600C62486 /* Assets.xcassets */; };
 		03F1383221BEC30600C62486 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F1383021BEC30600C62486 /* LaunchScreen.storyboard */; };
+		03F5C13621C4008C005E3539 /* NotSupportedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5C13521C4008C005E3539 /* NotSupportedViewController.swift */; };
 		CAF8CF2ED573A7C75E6E7A7F /* Pods_TriviaQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9A6C953D6C7A7177208607 /* Pods_TriviaQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		03F1382E21BEC30600C62486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03F1383121BEC30600C62486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03F1383321BEC30600C62486 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F5C13521C4008C005E3539 /* NotSupportedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSupportedViewController.swift; sourceTree = "<group>"; };
 		6AE960A84760122143A96442 /* Pods-TriviaQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriviaQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriviaQuiz/Pods-TriviaQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		78A2B4E98BD071CABF40FCD7 /* Pods-TriviaQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriviaQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-TriviaQuiz/Pods-TriviaQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		9E9A6C953D6C7A7177208607 /* Pods_TriviaQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TriviaQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				03F1382721BEC30500C62486 /* AppDelegate.swift */,
 				03F1382B21BEC30500C62486 /* Main.storyboard */,
 				038A76EA21C14DA900918373 /* LeaderBoardTableViewController.swift */,
+				03F5C13521C4008C005E3539 /* NotSupportedViewController.swift */,
 				038A76E621BFF0E100918373 /* QuestionViewController.swift */,
 				038A76E821C13A2A00918373 /* ResultsViewController.swift */,
 				038A76E421BFED2B00918373 /* IntroductionViewController.swift */,
@@ -237,6 +240,7 @@
 				038A76ED21C14E1800918373 /* HighScoreController.swift in Sources */,
 				038A76EB21C14DA900918373 /* LeaderBoardTableViewController.swift in Sources */,
 				03F1382821BEC30500C62486 /* AppDelegate.swift in Sources */,
+				03F5C13621C4008C005E3539 /* NotSupportedViewController.swift in Sources */,
 				038A76E921C13A2A00918373 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

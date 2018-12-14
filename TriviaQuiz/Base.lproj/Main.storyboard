@@ -104,6 +104,7 @@
                         <outlet property="difficultyPicker" destination="C2l-2a-Mhs" id="fJT-6O-Mda"/>
                         <outlet property="playButton" destination="FBd-2P-Zsh" id="rjS-JA-g93"/>
                         <segue destination="Nsz-Wv-bfT" kind="show" identifier="PlayPressed" id="Hqb-Xp-hnB"/>
+                        <segue destination="3Py-Xb-UF2" kind="show" identifier="NotSupportedSegue" id="jii-7C-bAU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAq-0b-yzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,6 +155,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9j-8C-dS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="673" y="202"/>
+        </scene>
+        <!--Not Supported View Controller-->
+        <scene sceneID="rfZ-Hd-Poe">
+            <objects>
+                <viewController id="PE8-Ya-3Mx" customClass="NotSupportedViewController" customModule="TriviaQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aAV-Ln-HGV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortanely, these preferences are not supported. Try a different amount of questions, difficulty level or category." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJp-37-EMr">
+                                <rect key="frame" x="16" y="283" width="343" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oS-88-M8y">
+                                <rect key="frame" x="16" y="352" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.31895166520000001" green="0.46020243900000002" blue="0.93450453369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Sen-rM-GKE"/>
+                                </constraints>
+                                <state key="normal" title="Try Agian">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="494-vv-Zdd" kind="unwind" unwindAction="unwindToQuizIntroductionWithSegue:" id="hsH-og-h86"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5oS-88-M8y" secondAttribute="trailing" id="2Pa-98-rPa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VJp-37-EMr" secondAttribute="trailing" id="401-QA-4X5"/>
+                            <constraint firstItem="5oS-88-M8y" firstAttribute="top" secondItem="VJp-37-EMr" secondAttribute="bottom" constant="8" id="8Wf-1F-K86"/>
+                            <constraint firstItem="5oS-88-M8y" firstAttribute="leading" secondItem="aAV-Ln-HGV" secondAttribute="leadingMargin" id="Vgg-ht-Spv"/>
+                            <constraint firstItem="VJp-37-EMr" firstAttribute="centerY" secondItem="aAV-Ln-HGV" secondAttribute="centerY" constant="-20" id="emB-6Q-2TO"/>
+                            <constraint firstItem="VJp-37-EMr" firstAttribute="leading" secondItem="aAV-Ln-HGV" secondAttribute="leadingMargin" id="irX-9X-Tdh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1DT-pU-0NI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hHK-r3-WER"/>
+                    <connections>
+                        <outlet property="tryAgainButton" destination="5oS-88-M8y" id="fKs-F2-kY4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gu7-xg-Uac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="494-vv-Zdd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2698.4000000000001" y="199.25037481259372"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -417,6 +467,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0KY-FE-2hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="-244.22788605697153"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bxv-wJ-OyA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Py-Xb-UF2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q3r-dp-GUD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PE8-Ya-3Mx" kind="relationship" relationship="rootViewController" id="B12-2H-3LV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ln-oY-qVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759.2" y="199.25037481259372"/>
         </scene>
     </scenes>
 </document>

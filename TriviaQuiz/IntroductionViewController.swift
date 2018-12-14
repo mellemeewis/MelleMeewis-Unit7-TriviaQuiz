@@ -15,12 +15,11 @@ class IntroductionViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     func pickerView(_ _pickerView: UIPickerView,numberOfRowsInComponent component: Int) -> Int {
-        return categorieData[component].count
+        return categorieData.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int
-        ) -> String? {
-        return categorieData[component]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categorieData[row]
     }
 //
 //    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -30,7 +29,8 @@ class IntroductionViewController: UIViewController, UIPickerViewDataSource, UIPi
     let categorieData = ["Any", "General Knowledge", "Books", "Films", "Music", "Musicals & Theatres", "Television", "Video Games", "Board Games", "Science & Nature", "Computers", "Mathematics", "Mythology", "Sports", "Geography", "History", "Politics", "Art", "Celebrities", "Animals", "Vehicles", "Comics", "Gadgets", "Japanese Anime & Manga", "Cartoon & Animations"]
     
     @IBAction func unwindToQuizIntroduction(segue: UIStoryboardSegue) {
-        
+        questions = []
+        GameController.shared.resetValues()
     }
     
     @IBOutlet weak var categoryPicker: UIPickerView!
@@ -41,23 +41,39 @@ class IntroductionViewController: UIViewController, UIPickerViewDataSource, UIPi
     var questions = [Question]()
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
-        var userInput = [String: String]()
+        var userInput: [String] = []
+        let amountOfQuestions = String(Int(amountOfQuestionsSlider.value))
+        userInput.append(amountOfQuestions)
+        
+        if categoryPicker.selectedRow(inComponent: 0) != 0 {
+            userInput.append(String(categoryPicker.selectedRow(inComponent: 0) + 8))
+        }
+        
         let difficulty = difficultyPicker.titleForSegment(at: difficultyPicker.selectedSegmentIndex)?.lowercased()
         if difficulty != "any" {
-            userInput["difficulty"] = difficulty
+            userInput.append(difficulty!)
         }
-        let amountOfQuestions = String(Int(amountOfQuestionsSlider.value))
-        userInput["amount"] = amountOfQuestions
-        GameController.shared.fetchQuestions(forUserInput: userInput as [String: String]){
+        print(userInput)
+
+        
+        
+        GameController.shared.fetchQuestions(forUserInput: userInput as [String]){
             (questions) in
             if let questions = questions {
                 self.questions = questions
+                while questions.count < Int(self.amountOfQuestionsSlider.value)  {
+                    continue
+                }
+                self.performSegue(withIdentifier: "PlayPressed", sender: nil)
+            }
+            else {
+                self.performSegue(withIdentifier: "NotSupportedSegue", sender: nil)                
             }
         }
-        while questions.count < Int(amountOfQuestionsSlider.value)  {
-            continue
-        }
-        performSegue(withIdentifier: "PlayPressed", sender: nil)
+//        while questions.count < Int(amountOfQuestionsSlider.value)  {
+//            continue
+//        }
+//        performSegue(withIdentifier: "PlayPressed", sender: nil)
     }
     
     @IBAction func AmountOfQuestionsSliderAltered(_ sender: UISlider) {

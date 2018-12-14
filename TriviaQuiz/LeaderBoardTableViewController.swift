@@ -18,6 +18,7 @@ class LeaderBoardTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         newName = ""
+        GameController.shared.resetValues()
     }
     
     var highScores = [HighScore]()
@@ -33,7 +34,7 @@ class LeaderBoardTableViewController: UITableViewController {
     func updateUI(with highScores: [HighScore]) {
         DispatchQueue.main.async {
             self.highScores = highScores.sorted {
-                $1.score < $0.score
+                Int($1.score)! < Int($0.score)!
             }
             self.tableView.reloadData()
         }
